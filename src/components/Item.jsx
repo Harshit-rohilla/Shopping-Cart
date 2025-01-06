@@ -1,6 +1,7 @@
 import {useDispatch } from "react-redux"
 import {add,remove} from "../redux/slices/btnSlice"
 import {useState} from "react"
+import Toast from 'react-hot-toast'
 
 function Item({obj}){
     const [btnValue,setBtnValue]=useState('ADD TO CART')
@@ -13,7 +14,7 @@ function Item({obj}){
             <img className="h-36 aspect-auto" src={obj.image} alt="product-image"/>
             <div className="flex justify-between items-center w-full mt-3">
                 <span className="font-bold text-green-600">${obj.price}</span>
-                <button onClick={()=>{btnValue==='ADD TO CART'?(dispatch(add(obj))):(dispatch(remove(obj))); btnValue==='ADD TO CART'?(setBtnValue("REMOVE ITEM")):(setBtnValue("ADD TO CART"))}} className="px-3 py-1 text-center rounded-2xl border-2 font-semibold border-gray-500 text-gray-500 text-sm group-hover:text-slate-200 group-hover:border-slate-800 group-hover:bg-slate-800 transition-colors duration-300">{btnValue}</button>
+                <button onClick={()=>{btnValue==='ADD TO CART'?(dispatch(add(obj)),Toast.success('ITEM ADDED')):(dispatch(remove(obj)),Toast.error('ITEM REMOVED!')); btnValue==='ADD TO CART'?(setBtnValue("REMOVE ITEM")):(setBtnValue("ADD TO CART"))}} className="px-3 py-1 text-center rounded-2xl border-2 font-semibold border-gray-500 text-gray-500 text-sm group-hover:text-slate-200 group-hover:border-slate-800 group-hover:bg-slate-800 transition-colors duration-300">{btnValue}</button>
             </div>
         </div>
         </>
