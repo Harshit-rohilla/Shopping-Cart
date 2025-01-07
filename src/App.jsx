@@ -33,13 +33,13 @@ function App(){
   return(
     <>
     <nav className="w-full bg-gray-900">
-      <div className="w-2/3 mx-auto flex justify-between items-center">
+      <div className="md:w-2/3 w-full mx-auto flex md:justify-between justify-around items-center">
         <div className="">
         <Link to='/'><img className="object-cover w-48 h-16" src="/shopping-cart-logo.svg" alt="logo"/></Link>
         </div>
         <div className="flex justify-center gap-x-6 items-center">
-          <span className="text-slate-200 text-lg cursor-pointer hover:text-green-600 transition-colors duration-300"><Link to="/">Home</Link></span>
-          <span className="cursor-pointer relative">{cart.length>0?(<Link to='/cart'><div className="w-4 h-4 ani text-xs flex justify-center items-center rounded-full bg-green-600 text-slate-100 z-10 absolute -top-1 -right-1">{cart.length}</div></Link>):(null)}<Link  to="/cart"><FaShoppingCart className="text-white text-[25px] hover:text-green-600 transition-colors duration-300" /></Link></span>
+          <span className="text-slate-200 text-lg cursor-pointer md:hover:text-green-600 transition-colors duration-300"><Link to="/">Home</Link></span>
+          <span className="cursor-pointer relative">{cart.length>0?(<Link to='/cart'><div className="w-4 h-4 ani text-xs flex justify-center items-center rounded-full bg-green-600 text-slate-100 z-10 absolute -top-1 -right-1">{cart.length}</div></Link>):(null)}<Link  to="/cart"><FaShoppingCart className="text-white text-[25px] md:hover:text-green-600 transition-colors duration-300" /></Link></span>
         </div>
       </div>
     </nav>

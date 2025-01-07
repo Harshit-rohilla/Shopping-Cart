@@ -5,18 +5,18 @@ function Cart(){
     const cart=useSelector((state)=>state.btn)
     
     if(cart.length>0){
-        const total=cart.reduce((acc,curr)=>(acc+curr.price),0)
+        const total=cart.reduce((acc,curr)=>(acc+curr.price),0).toFixed(2)
         return(
-            <div className="w-2/3 mx-auto flex mt-8">
-                <div className="w-[70%]">
+            <div className="md:w-2/3 mx-auto md:flex mt-8">
+                <div className="md:w-[70%] w-full px-2">
                     {cart.map((obj)=>(<CartItem key={obj.id} obj={obj}/>))}
                 </div>
-                <div className="w-[30%] mt-8 pl-4">
+                <div className="md:w-[30%] mt-8 w-full pl-4">
                     <p className="text-base text-green-600 font-semibold">YOUR CART</p>
                     <p className="text-3xl text-green-600 font-bold">SUMMARY</p>
                     <p className="font-medium text-gray-700 mb-2 mt-4">Total Items: <span className="font-bold text-gray-900">{cart.length}</span></p>
                     <p className="font-medium text-gray-700">Total Amount: <span className="font-bold text-gray-900">{total}$</span></p>
-                    <button className="bg-green-600 w-full py-2 mt-4 text-slate-100 font-medium rounded-md">Checkout Now</button>
+                    <button className="bg-green-600 md:w-full w-[95%] mb-4 py-2 mt-4 text-slate-100 font-medium rounded-md ">Checkout Now</button>
                 </div>
             </div>
         )
